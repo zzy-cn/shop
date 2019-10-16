@@ -25,7 +25,7 @@ class Common extends Controller{
 
     }
     //检查权限
-    //判断是否是免检权限，如果是则可以访问
+
     //获取当前管理员所拥有的的权限
     public function checkNode(){
         //获取当前用户
@@ -34,6 +34,11 @@ class Common extends Controller{
         if(in_array($currentadmin["admin_name"],config("web.super_admin"))){
             return true;
         }
+        //判断是否是免检权限，如果是则可以访问
+        if(in_array($currentadmin["admin_name"],config("web.super_admin"))){
+            return true;
+        }
+
 
 
 
