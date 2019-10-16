@@ -1,0 +1,77 @@
+{extend name="public:base" /}
+{block name="title"}DouPHP 管理中心 - 权限管理员{/block}
+{block name="content"}
+<div id="dcWrap">
+ <div id="dcMain">
+   <!-- 当前位置 -->
+<div id="urHere">DouPHP 管理中心<b>></b><strong>网站管理员</strong> </div>   <div id="manager" class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+    <h3><a href="{:url('node/show')}" class="actionBtn">返回列表</a>网站管理员</h3>
+            <form action="" method="post">
+     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+      <tr>
+       <td width="100" align="right">权限名称</td>
+       <td>
+        <input type="text" name="node_name" size="40" class="inpMain" />
+       </td>
+      </tr>
+      <tr>
+       <td width="100" align="right">选择权限</td>
+       <td>
+        <select name="node_pid" id="">
+          <option value="">顶级权限</option>
+         {foreach $node as $key=>$vo}
+         <option value="node_id">
+          {if $vo.level neq 0}|{/if}
+          <?php echo str_repeat('--',$vo['level']);?>
+          {$vo.node_name}
+         </option>
+         {/foreach}
+        </select>
+       </td>
+      </tr>
+      <tr>
+       <td width="100" align="right">是否显示</td>
+       <td>
+        <input type="radio" name="node_ismenu" size="40" value="1" />显示在左侧
+        <input type="radio" name="node_ismenu" size="40" value="0" />不显示在左侧
+       </td>
+      </tr>
+      <tr>
+       <td width="100" align="right">选择控制器</td>
+       <td>
+        <input type="text" name="node_controller" size="40" class="inpMain" />
+       </td>
+      </tr>
+      <tr>
+       <td width="100" align="right">选择方法</td>
+       <td>
+        <input type="text" name="node_action" size="40" class="inpMain" />
+       </td>
+      </tr>
+      <tr>
+       <td width="100" align="right">路径</td>
+       <td>
+        <input type="text" name="node_url" size="40" class="inpMain" />
+       </td>
+      </tr>
+      <tr>
+       <td></td>
+       <td>
+        <input type="submit" class="btn" value="提交" />
+       </td>
+      </tr>
+     </table>
+    </form>
+    </div>
+ </div>
+ <div class="clear"></div>
+<div id="dcFooter">
+ <div id="footer">
+  <div class="line"></div>
+  <ul>
+   版权所有 © 2013-2015 漳州豆壳网络科技有限公司，并保留所有权利。
+  </ul>
+ </div>
+</div><!-- dcFooter 结束 -->
+<div class="clear"></div> </div>
+{/block}

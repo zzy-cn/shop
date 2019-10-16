@@ -18,7 +18,7 @@ return [
     // 应用调试模式
     'app_debug'              => true,
     // 应用Trace
-    'app_trace'              => false,
+    'app_trace'              => true,
     // 应用模式状态
     'app_status'             => '',
     // 是否支持多模块
@@ -115,5 +115,10 @@ return [
     'show_error_msg'         => false,
     // 异常处理handle类 留空使用 \think\exception\Handle
     'exception_handle'       => '',
+    //七牛云
+    'ACCESSKEY' => '3q7WyycQb0ElwgIzDne5iA4h7Vph2-33_wy_n3Fj',//你的accessKey
+    'SECRETKEY' => 'NJbP4MlNX0rTaqqewBpFH71dCz9W5NM8gIoqYLHZ',//你的secretKey
+    'BUCKET' => '**********',      //上传的空间
+    'DOMAIN'=>'http://images.zyglz.com/'//空间绑定的域名
 
 ];
