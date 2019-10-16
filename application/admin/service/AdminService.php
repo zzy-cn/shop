@@ -8,7 +8,7 @@ class AdminService{
     public function getNodeByAdminId($admin_id){
         $adminrole=new AdminRole();
         $role_id=$adminrole->where("admin_id",$admin_id)->column("role_id");
-        $role=new Role();
+        //$role=new Role();
         //$role_name=$role->
 
     }
