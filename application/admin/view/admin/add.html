@@ -21,6 +21,14 @@
        </td>
       </tr>
       <tr>
+       <td width="100" align="right">所拥有的角色</td>
+       <td>
+        {foreach $role as $k=>$v}
+        <input type="checkbox" name="role_id[]" value="{$v.role_id}" size="40" />{$v.role_name}
+        {/foreach}
+       </td>
+      </tr>
+      <tr>
        <td align="right">密码</td>
        <td>
         <input type="password" name="admin_pwd" size="40" class="inpMain" />

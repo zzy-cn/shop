@@ -1,30 +1,29 @@
 <?php
 namespace app\admin\controller;
+use app\admin\model\Role;
 use think\Db;
 use think\facade\Request;
+use think\Controller;
 class Admin extends Common
 {
     public function show(){
-        if(request()->isGet()){
-            $admin=new \app\admin\model\Admin();
-            $data=$admin->allAdmin();
-            return view("",['data'=>$data]);
-        }
+            $admin=(new \app\admin\model\Admin())->all();
+            return view("",['admin'=>$admin]);
     }
     public function add(){
         if(request()->isGet()){
-            return view();
+            $role=(new Role())->all();
+            return view('',["role"=>$role]);
         }
         if(request()->isPost()){
-            $admin=Request::except('admin_repwd','post');
-            $admin['admin_add_time']=time();
-            $data=new \app\admin\model\Admin();
-            $res=$data->add($admin);
-            if($res){
-                $this->success("添加管理员成功","show");
-            }else{
-                $this->error("添加失败");
-            }
+            $adminModel=new \app\admin\model\Admin();
+            $adminModel->admin_name=request()->post("admin_name");
+            $adminModel->admin_sult=$admin_sult=substr(uniqid(),-4);
+            $adminModel->admin_pwd=md5(md5(request()->post("admin_pwd")).$admin_sult);
+            $adminModel->admin_add_time=time();
+            $adminModel->save();
+            $adminModel->role()->saveAll(request()->post("role_id/a"));
+            $this->success("添加管理员成功",'show');
         }
     }
 }

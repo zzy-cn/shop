@@ -32,6 +32,6 @@ return [
     'taglib_end'   => '}',
     'tpl_replace_string'   => [
 
-        '__STATIC__'   => 'http://localhost/tp5shop/public/static',
+        '__STATIC__'   => 'http://localhost/tp5shop/public/static'
     ],
 ];

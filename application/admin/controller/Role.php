@@ -3,7 +3,7 @@ namespace app\admin\controller;
 use app\admin\model\Node;
 use think\Controller;
 use think\Db;
-class Role extends Controller
+class Role extends Common
 {
     public function show(){
         if(request()->isGet()){

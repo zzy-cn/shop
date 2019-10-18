@@ -2,7 +2,7 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\Db;
-class Node extends Controller
+class Node extends Common
 {
     public function show(){
         if(request()->isGet()){

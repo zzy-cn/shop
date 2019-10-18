@@ -4,10 +4,10 @@ use think\Db;
 use think\Model;
 class Role extends Model
 {
-    //取所有的角色
-    public function allRole()
-    {
-        $node=Db::name("node")->select();
-        return $node;
+    protected $pk="role_id";
+    //关联模型
+    public function node(){
+        return $this->belongsToMany("Node",'role_node',"node_id","role_id");
     }
+
 }

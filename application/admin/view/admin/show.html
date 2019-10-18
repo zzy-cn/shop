@@ -16,15 +16,25 @@
       <th align="center">最后登录时间</th>
       <th align="center">操作</th>
      </tr>
-    {foreach $data as $key=>$vo}
+    {foreach $admin as $key=>$val}
       <tr>
-       <td align="center">{$vo.admin_id}</td>
-       <td>{$vo.admin_name}</td>
-       <td align="center">{$vo.admin_email}</td>
-       <td align="center">{$vo.admin_email}</td>
-       <td align="center">{$vo.admin_email}</td>
-       <td align="center">{$vo.admin_add_time|date='y-m-d H:i:s'}</td>
-       <td align="center">{$vo.admin_add_time|date='y-m-d H:i:s'}</td>
+       <td align="center">{$val.admin_id}</td>
+       <td>{$val.admin_name}</td>
+       <td align="center">{$val.admin_email}</td>
+       <td align="left">
+          {foreach $val->role as $k=>$v}
+          {$v.role_name}
+          {/foreach}
+       </td>
+       <td align="left">
+          {foreach $val->role as $k=>$v}
+          {foreach $v->node as $k1=>$v1}
+          {$v1->node_name},
+          {/foreach}
+          {/foreach}
+       </td>
+       <td align="center">{$val.admin_add_time|date='y-m-d H:i:s'}</td>
+       <td align="center">{$val.admin_add_time|date='y-m-d H:i:s'}</td>
        <td align="center"><a href="addmanager.html?rec=edit&id=1">编辑</a> | <a href="manager.html?rec=del&id=1">删除</a></td>
       </tr>
     {/foreach}

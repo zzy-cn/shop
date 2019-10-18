@@ -1,0 +1,42 @@
+{extend name="public:base" /}
+{block name="title"}DouPHP 管理中心 - 属性管理员{/block}
+{block name="content"}
+<div id="dcWrap">
+    <div id="dcMain">
+        <div id="urHere">DouPHP 管理中心<b>></b><strong>属性管理</strong> </div>   <div id="manager" class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+        <h3><a href="{:url('add',['type_id'=>$type_id])}" class="actionBtn">添加属性</a>属性管理</h3>
+        <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+            <tr>
+                <th width="30" align="center">编号</th>
+                <th align="center">属性名称</th>
+                <th align="center">商品类型</th>
+                <th align="center">属性值的录入方式</th>
+                <th align="center">可选值列表</th>
+                <th align="center">操作</th>
+            </tr>
+            {foreach $attr as $key=>$vo}
+            <tr>
+                <td align="center">{$vo.attr_id}</td>
+                <td>{$vo.attr_name}</td>
+                <td>{$type.type_name}</td>
+                <td>{$vo.attr_input_type}</td>
+                <td>{$vo.attr_select}</td>
+                <td align="center">
+                    <a href="addmanager.html?rec=edit&id=1">编辑</a> | <a href="manager.html?rec=del&id=1">删除</a></td>
+            </tr>
+            {/foreach}
+
+        </table>
+    </div>
+    </div>
+    <div class="clear"></div>
+    <div id="dcFooter">
+        <div id="footer">
+            <div class="line"></div>
+            <ul>
+                版权所有 © 2013-2015 漳州豆壳网络科技有限公司，并保留所有权利。
+            </ul>
+        </div>
+    </div><!-- dcFooter 结束 -->
+    <div class="clear"></div> </div>
+{/block}
